@@ -1,0 +1,72 @@
+﻿@model EF_Code_First_MVC_Employe_Crud.Models.EmployeeViewModel
+@{
+    ViewBag.Title = "EmployeeForm";
+}
+
+
+<h2>Employee Details</h2>
+<hr />
+
+
+@using (@Html.BeginForm("Save", "Employee"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.EmployeeName)
+        @Html.TextBoxFor(m => m.Employee.EmployeeName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.EmployeeDesignation)
+        @Html.TextBoxFor(m => m.Employee.EmployeeDesignation, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.EmployeeAddress)
+        @Html.TextBoxFor(m => m.Employee.EmployeeAddress, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.EmployeePassport)
+        @Html.TextBoxFor(m => m.Employee.EmployeePassport, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.Employeephone)
+        @Html.TextBoxFor(m => m.Employee.Employeephone, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.EmployeeGender)
+        @Html.TextBoxFor(m => m.Employee.EmployeeGender, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.city)
+        @Html.TextBoxFor(m => m.Employee.city, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.project)
+        @Html.TextBoxFor(m => m.Employee.project, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.companyName)
+        @Html.TextBoxFor(m => m.Employee.companyName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.Pincode)
+        @Html.TextBoxFor(m => m.Employee.Pincode, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.department.DepartmentId)
+        @Html.DropDownListFor(m => m.Employee.department.DepartmentId, new SelectList(Model.Department, "DepartmentId", "DepartmentName"), "Select Department", new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor(m => m.Employee.EmployeeId)
+
+    var c = @Model.Employee.EmployeeId > 0 ? "Update" : "Save";
+    <button type="submit" class="btn btn-primary">@c</button>
+}  

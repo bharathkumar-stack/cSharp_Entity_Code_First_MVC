@@ -1,0 +1,51 @@
+﻿@model IEnumerable<EF_Code_First_MVC_Employe_Crud.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employee Details</h2>
+<hr />
+
+<button class="">@Html.ActionLink("Add Employees", "AddEmployees", "Employee")</button>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.EmployeeName)</th>
+            <th>@Html.DisplayNameFor(m => m.EmployeeDesignation)</th>
+            <th>@Html.DisplayNameFor(m => m.EmployeeAddress)</th>
+            <th>@Html.DisplayNameFor(m => m.EmployeePassport)</th>
+            <th>@Html.DisplayNameFor(m => m.Employeephone)</th>
+            <th>@Html.DisplayNameFor(m => m.EmployeeGender)</th>
+            <th>@Html.DisplayNameFor(m => m.city)</th>
+            <th>@Html.DisplayNameFor(m => m.project)</th>
+            <th>@Html.DisplayNameFor(m => m.companyName)</th>
+            <th>@Html.DisplayNameFor(m => m.Pincode)</th>
+            <th>@Html.DisplayNameFor(m => m.department.DepartmentId)</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var employees in Model)
+        {
+            <tr>
+                <td>@employees.EmployeeName</td>
+                <td>@employees.EmployeeDesignation</td>
+                <td>@employees.EmployeeAddress</td>
+                <td>@employees.EmployeePassport</td>
+                <td>@employees.Employeephone</td>
+                <td>@employees.EmployeeGender</td>
+                <td>@employees.city</td>
+                <td>@employees.project</td>
+                <td>@employees.companyName</td>
+                <td>@employees.Pincode</td>
+                <td>@employees.department</td>
+                <td>@Html.ActionLink("Edit", "Edit", new { id = employees.EmployeeId })</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { id = employees.EmployeeId })</td>
+            </tr>
+        }
+    </tbody>
+</table>  
